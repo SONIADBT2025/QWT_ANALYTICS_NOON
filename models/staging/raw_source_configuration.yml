@@ -1,0 +1,9 @@
+version: 2
+ 
+sources:
+  - name: raw_qwt ###generic name
+    database: QWT_ANALYTICS_DEV
+    schema: RAW_DEV
+    tables:
+        - name: raw_customers
+        - name: raw_products
