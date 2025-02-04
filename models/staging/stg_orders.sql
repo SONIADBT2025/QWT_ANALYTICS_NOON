@@ -1,4 +1,4 @@
-{{ config(materialised = 'incremental',unique_key= ['OrderID'])}}
+{{ config(materialized = 'incremental',unique_key= ['OrderID'])}}
 
 select * 
 from 

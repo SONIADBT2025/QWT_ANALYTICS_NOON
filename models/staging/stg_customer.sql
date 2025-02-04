@@ -1,4 +1,4 @@
-{{ config(materialised = 'table')}}
+{{ config(materialized = 'table')}}
 
 select * 
 from 
