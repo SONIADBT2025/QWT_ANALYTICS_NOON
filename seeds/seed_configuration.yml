@@ -1,0 +1,15 @@
+###here we will give all properties of cvs files
+version: 2
+
+seeds:
+  - name: lkp_divisions
+    config:
+      schema: "{{env_var('DBT_LOOKUPSCHEMA','LOOKUP_DEV')}}"
+
+  - name: lkp_categories
+    config:
+      schema: "{{env_var('DBT_LOOKUPSCHEMA','LOOKUP_DEV')}}"
+  
+  - name: lkp_shippers
+    config:
+      schema: "{{env_var('DBT_LOOKUPSCHEMA','LOOKUP_DEV')}}"
