@@ -1,4 +1,4 @@
-{{ config(materialized = 'table' , schema = 'transforming_dev')}}
+{{ config(materialized = 'table' , schema = env_var('DBT_TRANSFORMSCHEMA','transforming_dev'))}}
 
 select 
 c.customerid,
@@ -14,5 +14,5 @@ c.postalcode,
 IFF(c.stateprovince='','NA',c.stateprovince) as stateprovincename
 
 from 
-{{ref('stg_customer')}} as c inner join
+{{ref('stg_customers')}} as c inner join
 {{ref('lkp_divisions')}} as d on c.divisionid= d.divisionid

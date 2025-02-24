@@ -1,0 +1,40 @@
+version: 2
+
+models:
+  - name: stg_customers
+    description: "{{doc('customers_desc')}}"
+    columns:
+      - name: customerid
+        description: unique identifier for each customer with customerid
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_products
+    description: master product data loaded from raw_products
+    columns:
+      - name: productid
+        description: identify each product uniquely in products master data  
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_shipments
+    description: shipmet data for orders loaded from raw products
+    columns:
+      - name: status
+        description: status shown by shipments
+        tests:
+          - accepted_values:
+              values: ['shipped','returned','ordered','replaced']
+  
+  - name: stg_orderdetails
+    columns:
+      - name: orderid
+        tests:
+          - relationships:
+              field: orderid
+              to: ref('stg_orders')
+
+
+    
